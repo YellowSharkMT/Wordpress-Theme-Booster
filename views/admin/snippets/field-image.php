@@ -17,7 +17,7 @@
 
     <?php if(!empty($title)):?><label for="<?php echo $key; ?>"><strong><?php echo $title; ?></strong><br/><?php endif; ?>
 
-    <img src="<?php echo $value; ?>" width="75"/>
+    <img src="<?php echo $value; ?>" width="75"<?php echo empty($value)?'class="empty-img"':''?>/>
 
     <input id="<?php echo $key; ?>" type="text" size="36" name="<?php echo $key; ?>" value="<?php echo $value; ?>" />
 

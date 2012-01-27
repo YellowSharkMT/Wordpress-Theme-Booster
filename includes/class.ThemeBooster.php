@@ -3,7 +3,7 @@
 $app = new ThemeBooster();
 
 add_action('init',              array($app,'enqueue_scripts'));
-add_action('wp_print_styles',   array($app,'enqueue_stylesheets'));
+add_action('init',   array($app,'enqueue_stylesheets'));
 add_action('widgets_init',      array($app,'register_sidebars'));
 add_action('admin_init',        array($app,'add_meta_boxes'));
 add_action('save_post',         array($app,'save_postdata'));
@@ -30,11 +30,11 @@ class ThemeBooster{
         'tb_link_6_url',
     );
 
-    public function get_custom_field_values($post_id=0){
-        if($post_id==0) global $post_id;
+    public function get_custom_field_values($post_ID=0){
+        if($post_ID==0): global $post; $post_ID = $post->ID; endif;
         $result = array();
         foreach($this->custom_field_names as $key):
-            $result[$key] = get_post_meta($post_id, $key, true);
+            $result[$key] = get_post_meta($post_ID, $key, true);
         endforeach;
         return (object)$result;
     }
@@ -60,7 +60,7 @@ class ThemeBooster{
 		$frontend_css = get_stylesheet_directory_uri() . '/css/tb_frontend.css';
 		wp_register_style('tb_frontend_css', $frontend_css);
 
-		$admin_css = get_stylesheet_directory_uri() . '/admin/tb_admin.css';
+		$admin_css = get_stylesheet_directory_uri() . '/css/tb_admin.css';
 		wp_register_style('tb_admin_css', $admin_css);
 
 		if(!is_admin()):
@@ -101,7 +101,9 @@ class ThemeBooster{
             'tb_custom_fields_meta_box_1', // panel ID
             __( 'WP Theme Booster - Custom Fields / Posts', 'tb_textdomain' ), // panel Title
             array($this,'custom_fields_meta_box_1'), // callback function, loads the actual panel
-            'post' // meta box (the panel) is available to this post type
+            'post', // meta box (the panel) is available to this post type
+            'normal', // position: normal, or side
+            'high' // priority
         );
 
         add_meta_box(

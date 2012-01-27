@@ -1,3 +1,27 @@
+/* Custom Fields Table, Generic (including div.tb_wrapper table.form-table stuff)
+------------------------------------- */
+.tb_wrapper h4{
+    font-size:18px;
+    padding:5px 15px;
+    border:1px solid #777;
+    background-color: #222;
+    color:#eee;
+    margin: 5px;
+    border-radius: 5px;
+}
+.tb_wrapper .wp-editor-wrap{
+    background-color: #fff;
+
+}
+
+/* Custom Field: Editor
+------------------------------------- */
+table tr.custom-field-content{
+
+}
+
+/* Custom Field: Image
+------------------------------------- */
 div.custom_field_type_image {
     padding-left:90px;
     position:relative;
@@ -9,31 +33,25 @@ div.custom_field_type_image img {
     border: 1px solid #555555;
     left: 4px;
     margin-right: 5px;
-    min-height: 75px;
     overflow: hidden;
-    padding-right: 3px;
     position: absolute;
     top: 4px;
     width: 75px;
 }
-
-table.form-table h4{
-    font-size:18px;
-    padding:5px 15px;
-    border:1px solid #777;
-    background-color: #222;
-    color:#eee;
-    margin: 5px;
-    border-radius: 5px;
+div.custom_field_type_image img.empty-img{
+    height:75px;
 }
-table tr.custom-field-content{}
+
 
 table tr.custom-field-images td{
     padding-bottom:15px;
 }
+
+/* Custom Field: Link
+------------------------------------- */
 div.custom_field_type_link label{
     display:inline-block;
-    width:50px;
+    width:58px;
     text-align: right;
     margin-right:3px;
 }
