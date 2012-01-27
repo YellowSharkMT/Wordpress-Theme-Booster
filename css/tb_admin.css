@@ -1,0 +1,44 @@
+div.custom_field_type_image {
+    padding-left:90px;
+    position:relative;
+    min-height:90px;
+}
+
+div.custom_field_type_image img {
+    background-color: #DDDDDD;
+    border: 1px solid #555555;
+    left: 4px;
+    margin-right: 5px;
+    min-height: 75px;
+    overflow: hidden;
+    padding-right: 3px;
+    position: absolute;
+    top: 4px;
+    width: 75px;
+}
+
+table.form-table h4{
+    font-size:18px;
+    padding:5px 15px;
+    border:1px solid #777;
+    background-color: #222;
+    color:#eee;
+    margin: 5px;
+    border-radius: 5px;
+}
+table tr.custom-field-content{}
+
+table tr.custom-field-images td{
+    padding-bottom:15px;
+}
+div.custom_field_type_link label{
+    display:inline-block;
+    width:50px;
+    text-align: right;
+    margin-right:3px;
+}
+div.custom_field_type_link strong.link_box_title{
+    display:inline-block;
+    text-decoration: underline;
+    padding-left:50px;
+}
