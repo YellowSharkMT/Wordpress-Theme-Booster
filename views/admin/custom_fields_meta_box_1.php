@@ -48,18 +48,20 @@ wp_nonce_field( 'tb_app', 'TB_NONCE' );
                 echo $custom_field_tpl->get_view($custom_field_image_view, $data);
                 ?>
             </td>
-        </tr>        <tr class="custom-field-images">
-                    <th scope="row"><label for="tb_img_2">Image 1:</label></th>
-                    <td>
-                        <?php
-                        $data = array(
-                            'key'=>'tb_img_2',
-                            'value'=>$fields->tb_img_2,
-                        );
-                        echo $custom_field_tpl->get_view($custom_field_image_view, $data);
-                        ?>
-                    </td>
-                </tr>
+        </tr>
+
+        <tr class="custom-field-images">
+            <th scope="row"><label for="tb_img_2">Image 2:</label></th>
+            <td>
+                <?php
+                $data = array(
+                    'key'=>'tb_img_2',
+                    'value'=>$fields->tb_img_2,
+                );
+                echo $custom_field_tpl->get_view($custom_field_image_view, $data);
+                ?>
+            </td>
+        </tr>
 
         <!-- Example of a set of relevant links (text/url fields) -->
         <tr><td colspan="2"><h4>Custom Links</h4></td></tr>
@@ -68,8 +70,16 @@ wp_nonce_field( 'tb_app', 'TB_NONCE' );
             <td colspan="2">
                 <table cellpadding="0" cellspacing="0" class="form-table">
 
-                    <?php for($i=1;$i<=6;$i = $i + 2): ?>
+                    <?php
+                    /* This `for` loop creates a 2-column table, in the style of:
+                     * | link #1    | link #2   |
+                     * | link #3    | link #4   |
+                     * | link #5    | link #6   |
+                     */
+                    ?>
+                    <?php for($i=1; $i <= 6; $i = $i + 2): // count to 6, increment by 2 ?>
                         <tr>
+                            <!-- odd-numbered fields    -->
                             <td width="50%">
                                 <?php
                                 $index = $i;
@@ -85,6 +95,7 @@ wp_nonce_field( 'tb_app', 'TB_NONCE' );
                                 $custom_field_tpl->get_view($custom_field_link_view, $data); ?>
                             </td>
 
+                            <!-- even-numbered fields -->
                             <td width="50%">
                                 <?php
                                 $index = $i+1;
